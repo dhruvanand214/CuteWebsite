@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry Baby</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #ffe6f0;
+      margin: 0;
+    }
+    .box {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+    }
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+    .no {
+      background-color: #f08080;
+      color: white;
+      position: relative;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="mainBox">
+    <h2>Sorry baby for my mistakes, please maan jao 🥺</h2>
+    <button class="btn yes" onclick="showLovePage()">Yes</button>
+    <button class="btn no" id="noBtn" onclick="showPleaseBox()">No</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    let moved = false;
+
+    function showLovePage() {
+      document.body.innerHTML = `
+        <div class="box">
+          <h1>I love you ❤️</h1>
+          <img src="https://i.pinimg.com/originals/b9/cf/7f/b9cf7fb8f4613bacaa5984c3c204f44b.jpg" alt="Love Image">
+        </div>
+      `;
+    }
+
+    function showPleaseBox() {
+      document.getElementById("mainBox").innerHTML = `
+        <h2>Please maan jaoo naa, I m sorry bubu 😢</h2>
+        <img src="https://i.pinimg.com/236x/90/d0/4b/90d04b4895380990b9081753e29c0a33.jpg" alt="Sad Image">
+        <br>
+        <button class="btn yes" onclick="finalLovePage()">Yes</button>
+        <button class="btn no" id="moveNo">No</button>
+      `;
+      const moveNo = document.getElementById("moveNo");
+      moveNo.addEventListener("mouseover", () => {
+        moveNo.style.position = "absolute";
+        moveNo.style.top = Math.random() * window.innerHeight + "px";
+        moveNo.style.left = Math.random() * window.innerWidth + "px";
+      });
+    }
+
+    function finalLovePage() {
+      document.body.innerHTML = `
+        <div class="box">
+          <h1>I love u sooo sooo much 💖</h1>
+          <img src="https://i.pinimg.com/originals/3d/dd/a6/3ddda69ed2b024e53502d70973618e2a.jpg" alt="Final Love">
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
